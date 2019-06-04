@@ -1,0 +1,12 @@
+version: '3'
+services:
+  bind:
+    image: "tumayouzi/bind-docker:latest"
+    container_name: "bind"
+    ports:
+      - "53:53/udp"
+    volumes:
+      - "./conf/named.conf:/etc/bind/named.conf"
+    logging:
+      driver: "json-file"
+    restart: always
